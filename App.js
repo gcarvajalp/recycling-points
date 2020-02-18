@@ -1,23 +1,25 @@
-import React, {Component } from 'react';
-import {Text, View} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
-class Greeting extends Component{
-	render(){
-		return(
-			<View style={{alignItems:'center'}}>
-				<Text>Hello {this.props.name}</Text>
-			</View>
-		);
+const styles = StyleSheet.create({
+	bigBlue:{
+		color: 'blue',
+		fontWeight: 'bold',
+		fontSize:30,
+	},
+	red:{
+		color:'red',
 	}
-}
+});
 
-export default class LotsOfGreetings extends Component{
+export default class LotsOfStyles extends Component{
 	render(){
 		return(
-			<View style={{alignItems:'center',top:50}}>
-				<Greeting name='Rexxar'/>
-				<Greeting name='Jaina'/>
-				<Greeting name='Valeera'/>
+			<View>
+				<Text style={styles.red}>just Red</Text>
+				<Text style={styles.bigBlue}>just bigBlue</Text>
+				<Text style={[styles.bigBlue, styles.red]}>big blue, then red</Text>
+				<Text style={[styles.red, styles.bigBlue]}>red, then big blue</Text>
 			</View>
 		);
 	}
